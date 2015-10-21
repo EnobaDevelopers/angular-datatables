@@ -50,7 +50,7 @@
   ],
   "dependencies": {
     "angular": ">=1.3.0",
-    "datatables": "EnobaDevelopers/DataTables",
+    "datatables": "git@github.com:EnobaDevelopers/DataTables.git#71198de507ae367d5dd5a341b5c571bcb2b25175",
     "jquery": ">=1.11.0"
   },
   "devDependencies": {
