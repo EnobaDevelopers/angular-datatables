@@ -150,6 +150,7 @@ function dtNGRenderer($log, $q, $compile, $timeout, DTRenderer, DTRendererServic
         var _$elem;
         var _parentScope;
         var _newParentScope;
+        var _newValue;
         var dtInstance;
         var renderer = Object.create(DTRenderer);
         renderer.name = 'DTNGRenderer';
@@ -180,8 +181,11 @@ function dtNGRenderer($log, $q, $compile, $timeout, DTRenderer, DTRendererServic
             var _alreadyRendered = false;
 
             _parentScope.$watchCollection(_ngRepeatAttr, function() {
-                if (_oTable && _alreadyRendered) {
-                    _destroyAndCompile();
+                if (_oTable && _alreadyRendered) {                        
+                     if(!angular.equals(newValue, _newValue)){
+                               _destroyAndCompile();
+                     }
+                    _newValue = newValue;
                 }
                 $timeout(function() {
                     _alreadyRendered = true;
